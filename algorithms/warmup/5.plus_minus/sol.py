@@ -16,6 +16,5 @@ for x in input().split():
     else:
         z += 1
 
-print("%.3f" % float(p/t))
-print("%.3f" % float(n/t))
-print("%.3f" % float(z/t))
+for x in [p, n, z]:
+    print("%.3f" % float(x/t))
