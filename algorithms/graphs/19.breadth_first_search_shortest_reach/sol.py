@@ -20,14 +20,17 @@ def component(graph, start):
 
 
 def bfs(graph, start, goal):
-    queue = [(start, [start])]
+    queue = [(start, {start})]
     while queue:
         (node, path) = queue.pop(0)
-        for adj in graph[node] - set(path):
+        for adj in graph[node] - path:
             if adj == goal:
-                return path + [adj]
+                path.add(adj)
+                return path
             else:
-                queue.append((adj, path + [adj]))
+                s = path.copy()
+                s.add(adj)
+                queue.append((adj, s))
     return []
 
 T = int(input())
